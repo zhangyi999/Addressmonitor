@@ -119,6 +119,15 @@ AddressPath struct {
 
 #### 分析流程
 
+0. 地址嗅探
+
+|交易所|币种|嗅探地址|提币费|提币限制|
+|--|--|--|--|--|
+|[CITEX](https://www.citex.co.kr/)|USDT|0x38dbb30c48aea509db36a09d3ffada9443e8fd81|2|(50, --)|
+|[ZZEX](https://www.zzexvip.com/)|USDT|0x3d475e9edef129acaacfb1cf282b842b723772f0|2|(--, --)|
+|[BIKI](https://www.biki.com/)|USDT|0xf88113960bc952f263e8415ba680ef3365ce28fd|3|(--, 1500)|
+|[ZG](https://zg.com/)|USDT|0x73652c7dea15558fb3e5ff0f32f63b2ae2f1e2a3|2|(7, 150002)|
+
 1. 给定目标地址
 2. 检索特殊关系地址
 3. 检索特殊关系地址的特殊关系地址
@@ -135,6 +144,7 @@ AddressPath struct {
     * 方向
     * 数量
     * 标记
+5. 分析报告
 
 #### 标记分类
 
