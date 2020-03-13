@@ -49,11 +49,106 @@ ETH 地址监控：通过嗅探并监控交易所或其它区块链应用的主�
 ![拓扑示意图](./img/zzex_usdt_1008.6.png)
 
 
+## 核心功能
+
+### 地址标记
+
+地址标记目前通过 [etherscan.io](https://etherscan.io/) 可以查到大部分合约和交易所，不过很多野鸡交易所还没有备案到浏览器中，需要通过【地址嗅探】【用户备案】等手段补全数据。
+
 ### 地址分类
 
-参数维度：
+通过地址分类找出特殊地址，能发未标记的重要地址，地址分类的标准方案如下：
 
-0. 币种
-1. 统计时间
-2. 目标地址
-3. 
+#### 维度
+
+单个 ETH 地址基本信息 `AddressDetail`:
+
+```go
+
+Transaction struct {
+    from byte
+    to byte
+    value uint
+    txid byte
+    time uint  
+}
+
+AddressDetail struct {
+	into []Transactions
+	out []Transactions
+	balance uint
+	token byte
+}
+
+```
+
+#### 路径
+
+![路径](./img/zzex_usdt_1008.7.png)
+
+通过筛选大额进出地址，追踪资金流向。
+
+```go
+
+Input struct {
+    value uint
+    address byte
+    perc float64
+}
+
+Output struct {
+    value uint
+    address byte
+    perc float64
+}
+
+AddressPath struct {
+    input []Input
+    output []Output
+}
+
+```
+
+#### 路径追溯
+
+![路径](./img/zzex_usdt_1008.8.png)
+
+## 产品计划
+
+### 0.0 Star
+
+#### 分析流程
+
+1. 给定目标地址
+2. 检索特殊关系地址
+3. 检索特殊关系地址的特殊关系地址
+4. 遇到标记地址停止检索
+5. 遇到中转地址标注并停止
+
+#### 模板要素
+
+1. 监控币种
+2. 监控地址
+3. 当前余额
+4. 关系图
+    * 地址
+    * 方向
+    * 数量
+    * 标记
+
+#### 标记分类
+
+1. 知名大地址：已被各大网站标注
+2. 中转地址：大资金高频率每日进出
+3. 普通地址：小资金低频率
+
+### 0.1 Beta
+
+目标：可快速分析地址并生成报告
+
+时间：15 天
+
+功能：【地址交易记录查询】【特殊地址标记】【关系图】【特殊地址提交】
+
+
+
