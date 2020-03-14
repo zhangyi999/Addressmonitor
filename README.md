@@ -123,10 +123,10 @@ AddressPath struct {
 
 |交易所|币种|嗅探地址|提币费|提币限制|嗅探提币hash
 |--|--|--|--|--|--|
-|[CITEX](https://www.citex.co.kr/)|USDT|[0x5366f1554a5a92afbf6fe3bdd2f5af51cdd783a2](https://etherscan.io/token/0xdac17f958d2ee523a2206206994597c13d831ec7?a=0x5366f1554a5a92afbf6fe3bdd2f5af51cdd783a2)|2|(50, --)|https://etherscan.io/tx/0x7cf2b8568e6806c588e033239ddaf33ff1f864b386e06f6dd282c081bc07d465
+|[CITEX](https://www.citex.co.kr/)|USDT|[0x5366f1554a5a92afbf6fe3bdd2f5af51cdd783a2](https://etherscan.io/token/0xdac17f958d2ee523a2206206994597c13d831ec7?a=0x5366f1554a5a92afbf6fe3bdd2f5af51cdd783a2)|2|(50, --)|[TX](https://etherscan.io/tx/0x7cf2b8568e6806c588e033239ddaf33ff1f864b386e06f6dd282c081bc07d465)
 |[ZZEX](https://www.zzexvip.com/)|USDT|0x3d475e9edef129acaacfb1cf282b842b723772f0|2|(--, --)|
-|[BIKI](https://www.biki.com/)|USDT|[0x285bc7c15bc1b9f63ed89b46ce3b475a5c9075fb](https://etherscan.io/token/0xdac17f958d2ee523a2206206994597c13d831ec7?a=0x285bc7c15bc1b9f63ed89b46ce3b475a5c9075fb)|3|(--, 1500)|https://etherscan.io/tx/0xd9954123d38d9a00a31d4db13db1d5257030c650d7c1220ddcc4f21e1e39f5e8
-|[ZG](https://zg.com/)|USDT|[0xfdb86c48aca5f4168c596f7337803e0e6d6fcaf6](https://etherscan.io/token/0xdac17f958d2ee523a2206206994597c13d831ec7?a=0xfdb86c48aca5f4168c596f7337803e0e6d6fcaf6)|2|(7, 150002)|
+|[BIKI](https://www.biki.com/)|USDT|[0x285bc7c15bc1b9f63ed89b46ce3b475a5c9075fb](https://etherscan.io/token/0xdac17f958d2ee523a2206206994597c13d831ec7?a=0x285bc7c15bc1b9f63ed89b46ce3b475a5c9075fb)|3|(--, 1500)|[TX](https://etherscan.io/tx/0xd9954123d38d9a00a31d4db13db1d5257030c650d7c1220ddcc4f21e1e39f5e8)
+|[ZG](https://zg.com/)|USDT|[0xfdb86c48aca5f4168c596f7337803e0e6d6fcaf6](https://etherscan.io/token/0xdac17f958d2ee523a2206206994597c13d831ec7?a=0xfdb86c48aca5f4168c596f7337803e0e6d6fcaf6)|2|(7, 150002)|[TX](https://etherscan.io/tx/0xfb4a2f813b135ec42df09a27f499da3b609ff1b1054d4837dcd57a6a28fff1ed)
 
 1. 给定目标地址
 2. 检索特殊关系地址
