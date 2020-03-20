@@ -68,7 +68,7 @@ ETH 地址监控：通过嗅探并监控交易所或其它区块链应用的主�
 Transaction struct {
     from byte
     to byte
-    value uint
+    value float64
     txid byte
     time uint  
 }
@@ -76,7 +76,7 @@ Transaction struct {
 AddressDetail struct {
 	into []Transactions
 	out []Transactions
-	balance uint
+	balance float64
 	token byte
 }
 
@@ -91,13 +91,13 @@ AddressDetail struct {
 ```go
 
 Input struct {
-    value uint
+    value float64
     address byte
     perc float64
 }
 
 Output struct {
-    value uint
+    value float64
     address byte
     perc float64
 }
@@ -123,7 +123,7 @@ AddressPath struct {
 
 |交易所|币种|嗅探地址|提币费|提币限制|嗅探提币hash
 |--|--|--|--|--|--|
-|[CITEX](https://www.citex.co.kr/)|USDT|[0x5366f1554a5a92afbf6fe3bdd2f5af51cdd783a2](https://etherscan.io/token/0xdac17f958d2ee523a2206206994597c13d831ec7?a=0x5366f1554a5a92afbf6fe3bdd2f5af51cdd783a2)|2|(50, --)|[TX](https://etherscan.io/tx/0x7cf2b8568e6806c588e033239ddaf33ff1f864b386e06f6dd282c081bc07d465)
+|[CITEX](https://www.citex.co.kr/)|USDT|[0x5366f1554a5a92afbf6fe3bdd2f5af51cdd783a2](https://etherscan.io/token/0xdac17f958d2ee523a2206206994597c13d831ec7?a=0x5366f1554a5a92afbf6fe3bdd2f5af51cdd783a2)|2|(50, --)|[to:0xbf9265cc324e6e2ae8624fb584b1636d3bc00ff3<br>from:0xe8bdf6edf278271faa520e4b562e972c89d91c31](https://etherscan.io/tx/0x7cf2b8568e6806c588e033239ddaf33ff1f864b386e06f6dd282c081bc07d465)
 |[ZZEX](https://www.zzexvip.com/)|USDT|0x3d475e9edef129acaacfb1cf282b842b723772f0|2|(--, --)|
 |[BIKI](https://www.biki.com/)|USDT|[0x285bc7c15bc1b9f63ed89b46ce3b475a5c9075fb](https://etherscan.io/token/0xdac17f958d2ee523a2206206994597c13d831ec7?a=0x285bc7c15bc1b9f63ed89b46ce3b475a5c9075fb)|3|(--, 1500)|[TX](https://etherscan.io/tx/0xd9954123d38d9a00a31d4db13db1d5257030c650d7c1220ddcc4f21e1e39f5e8)
 |[ZG](https://zg.com/)|USDT|[0xfdb86c48aca5f4168c596f7337803e0e6d6fcaf6](https://etherscan.io/token/0xdac17f958d2ee523a2206206994597c13d831ec7?a=0xfdb86c48aca5f4168c596f7337803e0e6d6fcaf6)|2|(7, 150002)|[TX](https://etherscan.io/tx/0xfb4a2f813b135ec42df09a27f499da3b609ff1b1054d4837dcd57a6a28fff1ed)
@@ -136,8 +136,26 @@ AddressPath struct {
 
 ##### 特殊地址方法
 
+特征维度：
+
+1. 转入数量: intoValue
+2. 转入笔数: intoNum
+3. 转出数量: outoValue
+4. 转出笔数: outoNum
+5. 转入地址数量: intoAddressNum
+6. 转出地址数量: outoAddressNum
+7. 持有 token 数量: balance
+
+特殊地址分类：
+
+|编号|分类|特征|疑似情况|
+|--|--|--|--|
+|1|小额用户地址|转入、转出频次低，地址余额不为0，币种数量 10 种以内|多为正常用户钱包地址|
+|2|中转地址|转入后立即转出或到一定额度才转出，转出地址单一|多为交易所用户端充币地址|
+|3|归集地址|频繁转入转出，地址币种数量较多> 10更明显，充入地址多为【2】类型地址|多为交易所钱包地址|
+|4|活跃合约项目地址|频繁转入转出，地址币种单一|多为某些项目的智能合约地址|
+
 将数值降序排列，按比例取 `index` 片段。
-统计大额关联地址，多笔大额转入或转出。
 
 #### 模板要素
 
