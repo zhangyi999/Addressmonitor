@@ -22,7 +22,7 @@
 |--|--|--|--|
 |账户U余额|185.1069|<span style="color:red">危险</span>|用过链上数据查询，账户余额低于10000，提币困难|
 |账户估值值|$3385.2463|<span style="color:red">危险</span>|仅计算排名前10的数字资产价值，账户估值低于$10000，经营困难|
-|活跃度|0|<span style="color:red">危险</span>|已该币种|
+|活跃度|0|<span style="color:red">危险</span>||
 |提现难度|<span style="color:red">4</span>|<span style="color:red">非常困难</span>|[ 0, 5 ] 数值越高提现越困，5 为无法提现 |
 |风险评级|DDD|<span style="color:red">极高风险</span>|A<sup>+</sup>最优，DDD 为最高风险|
 
